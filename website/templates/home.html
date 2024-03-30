@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block content %}
+    <div class="row text-center">
+        <div>
+            <h1>Data Base Chat Bot</h1>
+        </div>
+        <div>
+            <img class="img-fluid"
+                 src="{{ url_for('static', filename='images/chatbot.svg') }}"
+                 alt="chatbot_img">
+        </div>
+        <br>
+        <h2>This is LLM based chat bot which is buid to help the people who don't have sql knowlege</h2>
+        <a href="/chat-bot">
+            <button type="button" class="btn btn-lg btn-primary">Ask Your Question!</button>
+        </a>
+    </div>
+{% endblock content %}

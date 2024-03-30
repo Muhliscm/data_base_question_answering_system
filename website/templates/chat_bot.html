@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+    chat bot
+{% endblock title %}
+{% block content %}
+    <div>
+        <div class="image-container">
+            <h2>Discounts Schema</h2>
+            <img src="{{ url_for('static', filename='images/discounts.png') }}"
+                 alt="discounts">
+        </div>
+        <!-- Second heading and image -->
+        <div class="image-container">
+            <h2>T shirts Schema</h2>
+            <img src="{{ url_for('static', filename='images/t_shirts.png') }}"
+                 alt="t-shirts">
+        </div>
+        <h1 align='center'>Ask Your Question In English</h1>
+        <p>Example: "What is the total price of small sized t shirts?</p>
+        <form method='POST'>
+            <textarea class="form-control" rows="5" id="question" name="question"></textarea>
+            <br>
+            <div align='center'>
+                <div>
+                    <button type="submit"  id="chat" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+        <div id="answer">
+            {% if result %}<h2>Answer :{{ result }}</h2>{% endif %}
+        </div>
+        <br>
+        <div align="center">
+            <a href="/chat-bot">
+                <button type="submit" class="btn btn-secondary">Ask Again</button>
+            </a>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,7 +1,7 @@
 # from secret_key import google_api_key
-from db import connect_db
+from .db import connect_db
 from langchain_google_genai import GoogleGenerativeAI
-from fewshots import few_shots
+from .fewshots import few_shots
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain_community.vectorstores import Chroma
 from langchain.prompts import SemanticSimilarityExampleSelector
@@ -33,7 +33,8 @@ def few_shot_query_selector():
         to_vectorize, embedding=embeddings, metadatas=few_shots
     )
 
-    example_selector = SemanticSimilarityExampleSelector(vectorstore=vector_stores, k=2)
+    example_selector = SemanticSimilarityExampleSelector(
+        vectorstore=vector_stores, k=2)
     example_prompt = PromptTemplate(
         input_variables=[
             "Question",
@@ -49,7 +50,8 @@ def few_shot_query_selector():
         example_selector=example_selector,
         suffix=PROMPT_SUFFIX,
         prefix=_mysql_prompt,
-        input_variables=["input", "table_info", "top_k"],  # for suffix and prefix
+        input_variables=["input", "table_info",
+                         "top_k"],  # for suffix and prefix
     )
     db_chain = SQLDatabaseChain.from_llm(
         llm=llm, db=db, verbose=True, prompt=few_shot_prompt

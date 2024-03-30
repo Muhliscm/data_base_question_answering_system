@@ -1,13 +1,20 @@
 # from langchain.utilities import SQLDatabase
 from langchain_community.utilities import SQLDatabase
 import pymysql
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
+google_api_key = os.environ["GOOGLE_API_KEY"]
+username = os.environ["username"]
+password = os.environ["password"]
+host = os.environ["host"]
+database = os.environ["database"]
 
 
 def connect_db():
-    username = "root"
-    password = "root"
-    host = "localhost"
-    database = "atliq_tshirts"
+
     try:
         db = SQLDatabase.from_uri(
             f"mysql+pymysql://{username}:{password}@{host}/{database}",

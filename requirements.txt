@@ -1,7 +1,10 @@
-langchain==0.1.8
-langchain_community==0.0.21
-langchain_experimental==0.0.52
-langchain_google_genai==0.0.9
+Flask==2.2.2
+langchain==0.1.13
+langchain_community==0.0.29
+langchain_experimental==0.0.55
+langchain_google_genai==1.0.1
 PyMySQL==1.1.0
 python-dotenv==1.0.1
-#streamlit==1.31.1
+werkzeug==2.2.2
+chromadb
+sentence-transformers==2.3.1
